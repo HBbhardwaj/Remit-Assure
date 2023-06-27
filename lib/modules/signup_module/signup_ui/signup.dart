@@ -27,7 +27,6 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     // UI part start here //
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -76,44 +75,61 @@ class SignUpScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 20.0),
                         child: CommonTextWidget(
                           text: AppStrings.sendmoney,
+                          fontSize: AppTextSize.idelTextSize,
+                        ),
+                      ),
+                      SizedBox(
+                        height: Get.height * 0.02,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        child: CommonTextWidget(
+                          text: AppStrings.location,
                           fontSize: AppTextSize.extraSmallTextSize,
                         ),
                       ),
                       const SizedBox(height: 6),
                       Container(
                         height: 45,
-                        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2.0,),
-                        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 15.0,),
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 20.0,
+                          vertical: 2.0,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 2.0,
+                          horizontal: 15.0,
+                        ),
                         decoration: BoxDecoration(
                           color: AppColor.white,
-                          borderRadius: const BorderRadius.all(Radius.circular(5.0),),
-                        ),
-                        child:Obx(()=> DropdownButtonHideUnderline(
-
-                          child: DropdownButton(
-                            isExpanded: true,
-                            value:  _homeController.selectedCountry.value,
-                            icon: const Icon(Icons.keyboard_arrow_down),
-                            items: AppStrings.countryDropDown.map((String items) {
-
-                              return DropdownMenuItem(
-                                value:  items,
-                                child: CommonTextWidget(
-                                  text: items,
-                                  fontSize: AppTextSize.smallTextSize,
-                                  textAlign: TextAlign.start,
-                                ),
-                              );
-                            }).toList(),
-
-                            onChanged: (String? newValue) {
-                              _homeController.selectedCountry.value = newValue!;
-
-
-                            },
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(5.0),
                           ),
                         ),
-                      ),),
+                        child: Obx(
+                          () => DropdownButtonHideUnderline(
+                            child: DropdownButton(
+                              isExpanded: true,
+                              value: _homeController.selectedCountry.value,
+                              icon: const Icon(Icons.keyboard_arrow_down),
+                              items: AppStrings.countryDropDown
+                                  .map((String items) {
+                                return DropdownMenuItem(
+                                  value: items,
+                                  child: CommonTextWidget(
+                                    text: items,
+                                    fontSize: AppTextSize.smallTextSize,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (String? newValue) {
+                                _homeController.selectedCountry.value =
+                                    newValue!;
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -283,7 +299,8 @@ class SignUpScreen extends StatelessWidget {
                   ),
 
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
@@ -316,12 +333,17 @@ class SignUpScreen extends StatelessWidget {
                       width: Get.width,
                       text: AppStrings.signup,
                       onTap: () {
-                        _homeController.callRegisterApi(email: emailController.text.toString().trim(),
-                            password: passwordController.text.toString().trim(),
-                            promo_marketing : _homeController.isCheck.value ? "1":"0".toString().trim(),
-                            location: _homeController.selectedCountry.value,
-                            mobile: phonenumberController.text.toString().trim(),
-                            referralCode: referalcodeController.text.toString().trim(),);
+                        _homeController.callRegisterApi(
+                          email: emailController.text.toString().trim(),
+                          password: passwordController.text.toString().trim(),
+                          promo_marketing: _homeController.isCheck.value
+                              ? "1"
+                              : "0".toString().trim(),
+                          location: _homeController.selectedCountry.value,
+                          mobile: phonenumberController.text.toString().trim(),
+                          referralCode:
+                              referalcodeController.text.toString().trim(),
+                        );
                       },
                     ),
                   ),
@@ -355,9 +377,15 @@ class SignUpScreen extends StatelessWidget {
             ),
           ),
 
-          Obx(() => Visibility(
+          Obx(
+            () => Visibility(
               visible: DataHelper.isLoading.value,
-              child: CommonCircularBar(color: AppColor.headTextColor,),),),
+              child: CommonCircularBar(
+                color: AppColor.headTextColor,
+              ),
+            ),
+          ),
+          ////===========checking the code ///
         ],
       ),
     );

@@ -26,6 +26,7 @@ class AppStrings {
   static const String yournumber = " Your Number";
   static const String select = " Select..";
   static const String sendmoney = "Where are you sending money from?";
+  static const String location = "Location";
   static const String number = " Enter your Number";
   static const String iagree =
       "if you DO NOT wish to receive marketing information about out products and special offers, please check this box";
@@ -80,7 +81,7 @@ class AppStrings {
 
   static const countryDropDown  = [
     "Please Select Country",
-    'India', 'USA', 'Pakistan', 'Canda', "Nepal","Australia"
+      "Australia" , "New Zealand "
   ];
   
   

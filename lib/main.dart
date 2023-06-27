@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:freshproject/app_routes/app_routes.dart';
 import 'package:freshproject/app_routes/routes.dart';
 import 'package:freshproject/utils/app_strings.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
 import 'api/app_binding/rest_client_binding.dart';
 
 void main() async{
