@@ -44,7 +44,7 @@ class RestClient extends GetxService {
       }
 
       DataHelper.debugPrintLog("header","${options.headers.toString()}");
-      _dio.interceptors.requestLock.unlock();
+     // _dio.interceptors.requestLock.unlock();
       return handler.next(options);
     }, onResponse: (response, handler) {
       DataHelper.debugPrintLog("RESPONSE",'[${response.statusCode}] => DATA: ${response.data}');

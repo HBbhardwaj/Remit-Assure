@@ -184,6 +184,7 @@ class StepOneScreen extends StatelessWidget {
                         },
                         child: Obx(
                           ()=> CommonRadioTextFeild(
+                             onTab: (value){},
                             radiobutton: selectedValue.value == index ?
                                 _homeController.radioTextFeildModelList[index].text
                                 .toString(): "",
@@ -225,6 +226,7 @@ class StepOneScreen extends StatelessWidget {
                         },
                         child: Obx(
                           ()=> CommonRadioTextFeild(
+                            onTab: (value){},
                             radiobutton: selectedValue.value == index ?
                                 _homeController.radioTextFeildModelList1[index].text
                                 .toString(): "",

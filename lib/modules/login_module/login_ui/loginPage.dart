@@ -141,11 +141,13 @@ class LoginScreen extends StatelessWidget {
                       width: Get.width,
                       text: AppStrings.login,
                       onTap: () {
-                        _homeController.callLoginApi(
-                          email: emailController.text.toString().trim(),
-                          password: passwordController.text.toString().trim(),
-                          type: '0',
-                        );
+                        Get.toNamed(Routes.stepper);
+                        //   Get.toNamed(Routes.frogetpassword);
+                        // _homeController.callLoginApi(
+                        //   email: emailController.text.toString().trim(),
+                        //   password: passwordController.text.toString().trim(),
+                        //   type: '0',
+                        // );
                          StorageHelper.writeData(AppStorageKeys.USER_Password,passwordController.text.toString().trim());
                       },
                     ),

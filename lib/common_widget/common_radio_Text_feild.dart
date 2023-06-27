@@ -9,8 +9,9 @@ import 'package:get/get.dart';
 class CommonRadioTextFeild extends StatelessWidget {
   String? title;
   String? radiobutton;
+  void Function(String?)? onTab;
 
-  CommonRadioTextFeild({Key? key, this.radiobutton, this.title});
+  CommonRadioTextFeild({Key? key, this.radiobutton, this.title, this.onTab,});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +40,8 @@ class CommonRadioTextFeild extends StatelessWidget {
                   groupValue: radiobutton!,
               
                   activeColor: AppColor.buttoncolor,
-                  onChanged: (value) {
-                  DataHelper.logValue("check", value);
-                  }),
+                  
+                  onChanged:  onTab!),
                   Divider(
                     height: 1,
                     thickness: 1,

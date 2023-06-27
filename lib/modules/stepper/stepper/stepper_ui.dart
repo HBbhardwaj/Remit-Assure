@@ -11,6 +11,8 @@ import 'package:freshproject/utils/app_colors.dart';
 import 'package:freshproject/view_controller/home/home_controller.dart';
 import 'package:get/get.dart';
 
+import '../../../common_widget/common_background.dart';
+
 class StepperScreen extends StatelessWidget {
   StepperScreen({Key? key}) : super(key: key);
   final _homeController = Get.put(HomeController());
@@ -18,93 +20,113 @@ class StepperScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: Get.height,
-        child: Obx(
-          () => Stepper(
-elevation: 0,
-              type: StepperType.horizontal,
-            // physics:AlwaysScrollableScrollPhysics(),
-
-              currentStep: _homeController.currentStep.value,
-              onStepContinue: () {
-                 debugPrint("send data to server ${_homeController.currentStep.value}");
-                if (_homeController.currentStep.value ==
-                    buildStep().length - 1 && _homeController.currentStep.value != 5) {
-                      
-                  debugPrint("send data to server ${_homeController.currentStep.value}");
-                
-
-            
-                }else if(_homeController.currentStep.value == 5){
-                  Get.toNamed(Routes.home);
-                }
-                
-                 else {
-                  _homeController.currentStep.value++;
-               
-                }
-              },
-              onStepCancel: () {
-                _homeController.currentStep.value == 0
-                    ? null
-                    : _homeController.currentStep.value--;
-              },
-              onStepTapped: (index) {
-                _homeController.currentStep.value = index;
-              },
-              controlsBuilder: (context, details) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0.0,),
-                  child: Row(
-                    children: [
-                       if (_homeController.currentStep.value != 0)
-                        Expanded(
-                          child:
-                             Container(
-                        color: AppColor.buttoncolor,
-                        child: TextButton(
-                          onPressed: details.onStepCancel,
-                          child: Text(
-                            "Back",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )
-                      
-                        ),
-                          SizedBox(width: 20,),
-                        
-                      Expanded(
-                        
-                          child: Container(
-                        color: AppColor.buttoncolor,
-                        child: TextButton(
-                        
-                          onPressed: details.onStepContinue,
-                          
-                       
-                            
-                        
-                          
-
-                          child: Text(
-                            "Next",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )),
-                    
-                     
-                    ],
-                  ),
-                );
-              },
-              steps: buildStep(),
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+     children: [
+       CommonBackground(),
+        SizedBox(
+          height: Get.height,
+          width: Get.width,
+          child: Obx(
+            () => Theme(
            
+              data: ThemeData(
+                cardColor: AppColor.cardcolor,
+                canvasColor: AppColor.cardcolor,
+                colorScheme: Theme.of(context).colorScheme.copyWith(
+                  primary: AppColor.buttoncolor,
+                  
+                )
               ),
+              child: Stepper(
+                margin: EdgeInsets.only(top: 40),
+                      elevation: 0,
+                  type: StepperType.horizontal,
+                      
+                  currentStep: _homeController.currentStep.value,
+                  onStepContinue: () {
+                     debugPrint("send data to server ${_homeController.currentStep.value}");
+                    if (_homeController.currentStep.value ==
+                        buildStep().length - 1 && _homeController.currentStep.value != 5) {
+                          
+                      debugPrint("send data to server ${_homeController.currentStep.value}");
+                    
+                      
+                
+                    }else if(_homeController.currentStep.value == 5){
+                      Get.toNamed(Routes.home);
+                    }
+                    
+                     else {
+                      _homeController.currentStep.value++;
+                   
+                    }
+                  },
+                  onStepCancel: () {
+                    _homeController.currentStep.value == 0
+                        ? null
+                        : _homeController.currentStep.value--;
+                  },
+                  onStepTapped: (index) {
+                    _homeController.currentStep.value = index;
+                  },
+                  controlsBuilder: (context, details) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0.0,),
+                      child: Row(
+                        children: [
+                           if (_homeController.currentStep.value != 0)
+                            Expanded(
+                              child:
+                                 Container(
+                            color: AppColor.buttoncolor,
+                            child: TextButton(
+                              onPressed: details.onStepCancel,
+                              child: Text(
+                                "Back",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          )
+                          
+                            ),
+                              SizedBox(width: 20,),
+                            
+                          Expanded(
+                            
+                              child: Container(
+                            color: AppColor.buttoncolor,
+                            child: TextButton(
+                            
+                              onPressed: details.onStepContinue,
+                              
+                           
+                                
+                            
+                              
+                      
+                              child: Text(
+                                "Next",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          )),
+                        
+                         
+                        ],
+                      ),
+                    );
+                  },
+                  steps: buildStep(),
+               
+                  ),
+            ),
+          ),
         ),
-      ),
+      
+     ],
+      ),  
+       
     );
   }
 

@@ -4,7 +4,17 @@
             "outputFile": "D:\\flutter_projects\\flutter\\RamitAssure\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\harbh\\.gradle\\caches\\transforms-2\\files-2.1\\062c584e7105f32bea72d749c12db8a1\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\harbh\\.gradle\\caches\\transforms-3\\a04b67b12023a1e0fc635283737bb36b\\transformed\\core-1.10.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\harbh\\.gradle\\caches\\transforms-3\\b13b8864c8e41499ee10171e14afd62c\\transformed\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\harbh\\.gradle\\caches\\transforms-2\\files-2.1\\2f9250fe16fd137113577b8384df889a\\core-1.9.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

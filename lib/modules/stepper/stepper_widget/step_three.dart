@@ -1,3 +1,6 @@
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:freshproject/common_widget/common_radio_Text_feild.dart';
 import 'package:freshproject/common_widget/common_text_widget.dart';
@@ -15,6 +18,7 @@ class StepThreeScreen extends StatelessWidget {
   RxInt selectedValue = 0.obs;
   @override
   Widget build(BuildContext context) {
+
     return  Card(
      child: Container(
         padding: const EdgeInsets.symmetric(
@@ -57,18 +61,24 @@ class StepThreeScreen extends StatelessWidget {
              SizedBox(
                   height: 200,
                   child: ListView.builder(
-                    itemBuilder: (context, int index) => Container(
-                      margin: const EdgeInsets.only(right: 10),
-                      padding: const EdgeInsets.all(
-                        2.0,
-                      ),
-                      child: InkWell(
-                        onTap: (){
-                          selectedValue.value = index;
-                          DataHelper.logData("value", selectedValue.value);
-                        },
+                    itemBuilder: (context, int index) => InkWell(
+                      onTap: (){
+                        selectedValue.value = index;
+                        DataHelper.logData("value", selectedValue.value);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.all(
+                          2.0,
+                        ),
                         child: Obx(
-                          ()=> CommonRadioTextFeild(
+                          ()=>
+                          
+                          CommonRadioTextFeild(
+                            onTab: (value) {
+                              log("selectedValue ${selectedValue.value }, ${index}");
+                                log("selectedValue ${value}");
+                            } ,
                             radiobutton: selectedValue.value == index ?
                                 _homeController.paymentdetailtabList[index].text
                                 .toString(): "",
