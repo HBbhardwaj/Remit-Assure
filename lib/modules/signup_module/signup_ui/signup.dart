@@ -386,6 +386,7 @@ class SignUpScreen extends StatelessWidget {
             ),
           ),
           ////===========checking the code ///
+          ///===in my computer working==///
         ],
       ),
     );
